@@ -1,0 +1,55 @@
+{
+    "Control-agent": {
+        "authentication": {
+            "clients": [
+                {
+                    "password": "1234",
+                    "user": "admin",
+                    "user-context": {
+                        "comment": "admin is authorized"
+                    }
+                },
+                {
+                    "password-file": "hiddenp",
+                    "user-file": "hiddenu"
+                },
+                {
+                    "password-file": "hiddens"
+                }
+            ],
+            "directory": "/tmp/kea-creds",
+            "realm": "kea-control-agent",
+            "type": "basic"
+        },
+        "control-sockets": {
+            "d2": {
+                "socket-name": "/tmp/kea-ddns-ctrl-socket",
+                "socket-type": "unix",
+                "user-context": {
+                    "in-use": false
+                }
+            },
+            "dhcp4": {
+                "socket-name": "/tmp/kea4-ctrl-socket",
+                "socket-type": "unix",
+                "user-context": {
+                    "comment": "socket to DHCPv4 server"
+                }
+            },
+            "dhcp6": {
+                "socket-name": "/tmp/kea6-ctrl-socket",
+                "socket-type": "unix"
+            }
+        },
+        "hooks-libraries": [
+            {
+                "library": "/opt/local/control-agent-commands.so",
+                "parameters": {
+                    "param1": "foo"
+                }
+            }
+        ],
+        "http-host": "127.0.0.1",
+        "http-port": 8000
+    }
+}
